@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css">
+  <title>Mill Game</title>
+</head>
+
+<body>
+  <main id="app">
+    <div class="status-bar">
+      <h2 id="player-indicator">Player One</h2>
+      <button class="hidden" id="reset">New Game</button>
+    </div>
+
+
+    <div class="play-piece" id="play-piece"></div>
+    <div class="flex">
+      <div class="container" id="pieces-p1">
+
+      </div>
+      <div class="board">
+        <div class="point" style="--place: a7;"></div>
+        <div class="point" style="--place: d7;"></div>
+        <div class="point" style="--place: g7;"></div>
+        <div class="point" style="--place: b6;"></div>
+        <div class="point" style="--place: d6;"></div>
+        <div class="point" style="--place: f6;"></div>
+        <div class="point" style="--place: c5;"></div>
+        <div class="point" style="--place: d5;"></div>
+        <div class="point" style="--place: e5;"></div>
+        <div class="point" style="--place: a4;"></div>
+        <div class="point" style="--place: b4;"></div>
+        <div class="point" style="--place: c4;"></div>
+        <div class="point" style="--place: e4;"></div>
+        <div class="point" style="--place: f4;"></div>
+        <div class="point" style="--place: g4;"></div>
+        <div class="point" style="--place: c3;"></div>
+        <div class="point" style="--place: d3;"></div>
+        <div class="point" style="--place: e3;"></div>
+        <div class="point" style="--place: b2;"></div>
+        <div class="point" style="--place: d2;"></div>
+        <div class="point" style="--place: f2;"></div>
+        <div class="point" style="--place: a1;"></div>
+        <div class="point" style="--place: d1;"></div>
+        <div class="point" style="--place: g1;"></div>
+        <div class="line" style="--line: 1/1/2/8;"></div>
+        <div class="line" style="--line: 2/2/3/7;"></div>
+        <div class="line" style="--line: 3/3/4/6;"></div>
+        <div class="line" style="--line: 4/1/5/4;"></div>
+        <div class="line" style="--line: 4/5/5/8;"></div>
+        <div class="line" style="--line: 5/3/6/6;"></div>
+        <div class="line" style="--line: 6/2/7/7;"></div>
+        <div class="line" style="--line: 7/1/8/8;"></div>
+        <div class="line-v" style="--line: 1/1/8/2"></div>
+        <div class="line-v" style="--line: 2/2/7/3"></div>
+        <div class="line-v" style="--line: 3/3/6/4"></div>
+        <div class="line-v" style="--line: 1/4/4/5"></div>
+        <div class="line-v" style="--line: 5/4/8/5"></div>
+        <div class="line-v" style="--line: 3/5/6/6"></div>
+        <div class="line-v" style="--line: 2/6/7/7"></div>
+        <div class="line-v" style="--line: 1/7/8/8"></div>
+        <div class="mill hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+            <path fill="currentColor"
+              d="M6 5L3.5 7.5l1 1L7 6v-.5l.5-.5l.5.5V6l2.5 2.5l1-1L9 5h-.5L8 4.5l.5-.5H9l2.5-2.5l-1-1L8 3v.5l-.5.5l-.5-.5V3L4.5.5l-1 1L6 4h.5l.5.5l-.5.5zm5.5 8h-1l-1-4l-2-2l-2 2l-1 4h-1a.5.5 0 1 0 0 1h8a.5.5 0 0 0 0-1M8 13H7v-1.502c0-.275.223-.498.498-.498c.277 0 .502.225.502.502z" />
+          </svg></div>
+      </div>
+      <div class="container" id="pieces-p2">
+
+      </div>
+    </div>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
