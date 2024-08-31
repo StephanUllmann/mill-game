@@ -1,4 +1,4 @@
-import { checkIsMill, connectedMap } from './utils';
+import { checkIsMill, connectedMap, lToi } from './utils';
 let boardEl: HTMLDivElement;
 let playerIndicator: HTMLHeadingElement;
 let playPiece: HTMLDivElement;
@@ -111,25 +111,33 @@ function handleMove(point: HTMLDivElement) {
   const opponentPlaces = isPlayerOne ? p2Places : p1Places;
   if (opponentPlaces.includes(place)) return;
 
-  if (isPlayerOne) {
-    p1Places.splice(
-      p1Places.findIndex((p) => oldPlace === p),
-      1
-    );
-  } else {
-    p2Places.splice(
-      p2Places.findIndex((p) => oldPlace === p),
-      1
-    );
-  }
-  selectedPoint?.classList.remove('selected', 'p1', 'p2');
-  selectedPoint = null;
-  handlePlacement(point);
-  if (isMill) {
-    setupMillState();
-    return;
-  }
-  endRound();
+  const yMove = Number(oldPlace[1]) - Number(place[1]);
+  const xMove = lToi[place[0] as keyof typeof lToi] - lToi[oldPlace[0] as keyof typeof lToi];
+
+  selectedPoint!.classList.add('move');
+  selectedPoint!.style.transform = `translate(calc(11cqh * ${xMove}), calc(11cqh * ${yMove}))`;
+  setTimeout(() => {
+    if (isPlayerOne) {
+      p1Places.splice(
+        p1Places.findIndex((p) => oldPlace === p),
+        1
+      );
+    } else {
+      p2Places.splice(
+        p2Places.findIndex((p) => oldPlace === p),
+        1
+      );
+    }
+    selectedPoint!.style.transform = 'unset';
+    selectedPoint?.classList.remove('selected', 'p1', 'p2', 'move');
+    selectedPoint = null;
+    handlePlacement(point);
+    if (isMill) {
+      setupMillState();
+      return;
+    }
+    endRound();
+  }, 500);
 }
 
 function selectPoint(point: HTMLDivElement) {
