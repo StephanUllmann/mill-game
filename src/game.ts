@@ -115,7 +115,7 @@ function handleMove(point: HTMLDivElement) {
   const xMove = lToi[place[0] as keyof typeof lToi] - lToi[oldPlace[0] as keyof typeof lToi];
 
   selectedPoint!.classList.add('move');
-  selectedPoint!.style.transform = `translate(calc(11cqh * ${xMove}), calc(11cqh * ${yMove}))`;
+  selectedPoint!.style.transform = `translate(calc(min(10.5cqh, 10.5cqw) * ${xMove}), calc(min(10.5cqh, 10.5cqw) * ${yMove}))`;
   setTimeout(() => {
     if (isPlayerOne) {
       p1Places.splice(
