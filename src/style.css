@@ -388,6 +388,9 @@ button:hover {
 #close-ws {
   margin-bottom: 1rem;
 }
+#msg {
+  margin-block: 1rem;
+}
 
 form {
   display: grid;
