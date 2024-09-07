@@ -131,9 +131,9 @@ h2 {
 }
 
 /* flickering */
-/* :not(:has(.board:hover)) #play-piece {
+:not(:has(.board:hover)) #play-piece {
   display: none;
-} */
+}
 :not(:has(.point:hover)) .play-piece {
   --x: -40px;
   --y: -40px;
@@ -292,3 +292,45 @@ button#pwa-refresh {
 #pwa-toast.show.refresh button#pwa-refresh {
   display: block;
 }
+
+.rooms {
+  position: absolute;
+
+  right: 1rem;
+  top: 2rem;
+}
+
+form {
+  display: grid;
+}
+
+.mode {
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  width: 15rem;
+  /* height: 15svh; */
+  form {
+    margin-block: 5svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+  button {
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+  }
+}
+
+/* .mode input[type='checkbox'] {
+  appearance: none;
+}
+
+.mode label {
+  font: inherit;
+  color: rgba(255, 255, 255, 0.87);
+  cursor: pointer;
+  font-size: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-primary);
+} */

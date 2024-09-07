@@ -12,7 +12,7 @@
 <body>
   <main id="app">
     <div class="status-bar">
-      <h2 id="player-indicator">Player One</h2>
+      <h2><span id="room-ind"></span><span id="player-indicator">Welcome</span></h2>
       <button class="hidden" id="reset">New Game</button>
     </div>
 
@@ -23,30 +23,30 @@
 
       </div>
       <div class="board">
-        <div class="point" style="--place: a7;"></div>
-        <div class="point" style="--place: d7;"></div>
-        <div class="point" style="--place: g7;"></div>
-        <div class="point" style="--place: b6;"></div>
-        <div class="point" style="--place: d6;"></div>
-        <div class="point" style="--place: f6;"></div>
-        <div class="point" style="--place: c5;"></div>
-        <div class="point" style="--place: d5;"></div>
-        <div class="point" style="--place: e5;"></div>
-        <div class="point" style="--place: a4;"></div>
-        <div class="point" style="--place: b4;"></div>
-        <div class="point" style="--place: c4;"></div>
-        <div class="point" style="--place: e4;"></div>
-        <div class="point" style="--place: f4;"></div>
-        <div class="point" style="--place: g4;"></div>
-        <div class="point" style="--place: c3;"></div>
-        <div class="point" style="--place: d3;"></div>
-        <div class="point" style="--place: e3;"></div>
-        <div class="point" style="--place: b2;"></div>
-        <div class="point" style="--place: d2;"></div>
-        <div class="point" style="--place: f2;"></div>
-        <div class="point" style="--place: a1;"></div>
-        <div class="point" style="--place: d1;"></div>
-        <div class="point" style="--place: g1;"></div>
+        <div class="point" style="--place: a7;" id="a7"></div>
+        <div class="point" style="--place: d7;" id="d7"></div>
+        <div class="point" style="--place: g7;" id="g7"></div>
+        <div class="point" style="--place: b6;" id="b6"></div>
+        <div class="point" style="--place: d6;" id="d6"></div>
+        <div class="point" style="--place: f6;" id="f6"></div>
+        <div class="point" style="--place: c5;" id="c5"></div>
+        <div class="point" style="--place: d5;" id="d5"></div>
+        <div class="point" style="--place: e5;" id="e5"></div>
+        <div class="point" style="--place: a4;" id="a4"></div>
+        <div class="point" style="--place: b4;" id="b4"></div>
+        <div class="point" style="--place: c4;" id="c4"></div>
+        <div class="point" style="--place: e4;" id="e4"></div>
+        <div class="point" style="--place: f4;" id="f4"></div>
+        <div class="point" style="--place: g4;" id="g4"></div>
+        <div class="point" style="--place: c3;" id="c3"></div>
+        <div class="point" style="--place: d3;" id="d3"></div>
+        <div class="point" style="--place: e3;" id="e3"></div>
+        <div class="point" style="--place: b2;" id="b2"></div>
+        <div class="point" style="--place: d2;" id="d2"></div>
+        <div class="point" style="--place: f2;" id="f2"></div>
+        <div class="point" style="--place: a1;" id="a1"></div>
+        <div class="point" style="--place: d1;" id="d1"></div>
+        <div class="point" style="--place: g1;" id="g1"></div>
         <div class="line" style="--line: 1/1/2/8;"></div>
         <div class="line" style="--line: 2/2/3/7;"></div>
         <div class="line" style="--line: 3/3/4/6;"></div>
@@ -67,10 +67,27 @@
             <path fill="currentColor"
               d="M6 5L3.5 7.5l1 1L7 6v-.5l.5-.5l.5.5V6l2.5 2.5l1-1L9 5h-.5L8 4.5l.5-.5H9l2.5-2.5l-1-1L8 3v.5l-.5.5l-.5-.5V3L4.5.5l-1 1L6 4h.5l.5.5l-.5.5zm5.5 8h-1l-1-4l-2-2l-2 2l-1 4h-1a.5.5 0 1 0 0 1h8a.5.5 0 0 0 0-1M8 13H7v-1.502c0-.275.223-.498.498-.498c.277 0 .502.225.502.502z" />
           </svg></div>
+
       </div>
       <div class="container" id="pieces-p2">
 
       </div>
+    </div>
+    <dialog class="mode" id="mode">
+      <form method="dialog">
+        <button type="submit" value="local">Local</button>
+        <button type="submit" value="online">Online</button>
+      </form>
+      <!-- <label><input type="checkbox" name="mode" value="online">Online</label> -->
+    </dialog>
+    <div class="rooms hidden">
+      <form id="socketForm">
+        <label for="room">Room <input type="text" name="room" placeholder="room"></label>
+        <label for="name">Name <input type="text" name="name" placeholder="name"></label>
+        <button>Connect</button>
+      </form>
+      <button id="close-ws" class="hidden">Close</button>
+      <p id="msg" class="hidden"></p>
     </div>
   </main>
   <script type="module" src="/src/main.ts"></script>
