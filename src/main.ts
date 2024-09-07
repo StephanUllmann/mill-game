@@ -51,7 +51,7 @@ const handleMessage = (e: MessageEvent<string>) => {
     case '0': {
       black = p1;
       player = 'black';
-      showMessage('Waiting for another player', 20000);
+      showMessage('Waiting for another player', 200000);
       break;
     }
     case '1': {

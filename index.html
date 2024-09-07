@@ -12,16 +12,14 @@
 <body>
   <main id="app">
     <div class="status-bar">
-      <h2><span id="room-ind"></span><span id="player-indicator">Welcome</span></h2>
+      <h1><span id="room-ind"></span><span id="player-indicator">Welcome</span></h1>
       <button class="hidden" id="reset">New Game</button>
     </div>
 
 
     <div class="play-piece" id="play-piece"></div>
     <div class="flex">
-      <div class="container" id="pieces-p1">
-
-      </div>
+      <div class="container" id="pieces-p1"></div>
       <div class="board">
         <div class="point" style="--place: a7;" id="a7"></div>
         <div class="point" style="--place: d7;" id="d7"></div>
@@ -69,27 +67,31 @@
           </svg></div>
 
       </div>
-      <div class="container" id="pieces-p2">
+      <div class="container" id="pieces-p2"></div>
+    </div>
 
-      </div>
-    </div>
-    <dialog class="mode" id="mode">
-      <form method="dialog">
-        <button type="submit" value="local">Local</button>
-        <button type="submit" value="online">Online</button>
-      </form>
-      <!-- <label><input type="checkbox" name="mode" value="online">Online</label> -->
-    </dialog>
-    <div class="rooms hidden">
-      <form id="socketForm">
-        <label for="room">Room <input type="text" name="room" placeholder="room"></label>
-        <label for="name">Name <input type="text" name="name" placeholder="name"></label>
-        <button>Connect</button>
-      </form>
-      <button id="close-ws" class="hidden">Close</button>
-      <p id="msg" class="hidden"></p>
-    </div>
   </main>
+
+  <dialog class="mode" id="mode">
+    <h2>Nine Men's Morris</h2>
+    <form method="dialog">
+      <button type="submit" value="local">Local</button>
+      <span>or</span>
+      <button type="submit" value="online">Online</button>
+    </form>
+  </dialog>
+
+  <aside class="rooms hidden">
+    <form autocomplete="off" id="socketForm">
+      <div><label for="room">Room </label><input type="text" name="room" id="room">
+      </div>
+      <div><label for="name">Name </label><input type="text" name="name" id="name">
+      </div>
+      <button>Connect</button>
+    </form>
+    <button id="close-ws" class="hidden">Close</button>
+    <p id="msg" class="hidden"></p>
+  </aside>
   <script type="module" src="/src/main.ts"></script>
 </body>
 

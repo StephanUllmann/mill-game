@@ -96,6 +96,7 @@ function endRound() {
   } else {
     boardEl.inert = false;
   }
+  document.body.classList.toggle('is-player');
   isPlayerOne = !isPlayerOne;
   const text = isPlayerOne ? playerBlackName : playerWhiteName;
   playerIndicator.textContent = text + "'s turn";
@@ -217,6 +218,7 @@ function startGame() {
     boardEl.inert = true;
   } else {
     boardEl.inert = false;
+    document.body.classList.add('is-player');
   }
 
   document.getElementById('reset')!.classList.add('hidden');
