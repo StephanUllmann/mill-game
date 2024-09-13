@@ -46,9 +46,9 @@ export class NetworkHandler {
         document.getElementById('close-ws')!.click();
         break;
       }
-      case 'black':
-      case 'white': {
-        if (this.#player !== code) {
+      case 'b':
+      case 'w': {
+        if (this.#player[0] !== code) {
           document.getElementById(msg)?.click();
         }
         break;

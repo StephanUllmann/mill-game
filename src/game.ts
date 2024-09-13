@@ -95,7 +95,7 @@ export class Game {
     if (!point) return;
     // if socket and it's my turn
     if (this.#socket && (this.#playerSelf === 'black') === this.#isPlayerOne) {
-      this.#socket.send(this.#playerSelf + '-' + point.id);
+      this.#socket.send(this.#playerSelf[0] + '-' + point.id);
     }
     if (this.#isMill) this.#handleMillClick(point);
     else if (this.#selectedPoint) {
