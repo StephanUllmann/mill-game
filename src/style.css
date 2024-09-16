@@ -73,7 +73,7 @@ h2 {
   background-image: radial-gradient(
       in oklch circle at 60% 40%,
       hsl(23, 29%, 41%),
-      hsl(14, 42%, 27%) 80%,
+      hsl(13, 42%, 27%) 80%,
       hsl(14, 42%, 22%) 95%
     ),
     url(/noise.svg);
@@ -181,16 +181,30 @@ body.phase-two .play-piece {
   content: '';
   width: min(6cqh, 6cqw);
   background-color: var(--player-black);
+  background-image: radial-gradient(
+    var(--player-black),
+    hsl(from var(--player-black) h s 10%) 35%,
+    hsl(from var(--player-black) h s 30%) 35%,
+    hsl(from var(--player-black) h s 10%) 40%,
+    var(--player-black)
+  );
   aspect-ratio: 1;
   position: absolute;
   inset: 50%;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -52.5%);
   box-shadow: 0px 3px 0px hsl(from var(--player-black) 0 0 calc(l * 0.5));
 }
 .p2::after,
 .p2ind::after {
   background-color: var(--player-white);
+  background-image: radial-gradient(
+    var(--player-white),
+    hsl(from var(--player-white) h s 90%) 35%,
+    hsl(from var(--player-white) h s 70%) 35%,
+    hsl(from var(--player-white) h s 90%) 40%,
+    var(--player-white)
+  );
   box-shadow: 0px 3px 0px hsl(from var(--player-white) 0 0 calc(l * 0.5));
 }
 
@@ -218,7 +232,7 @@ body.phase-two .play-piece {
   align-items: center;
   gap: 1rem;
   height: 100%;
-  z-index: 20;
+  z-index: 10;
   position: absolute;
   width: 100%;
   margin-block-start: min(9vh, 9vw);
@@ -259,31 +273,7 @@ body.phase-two .play-piece {
 
 .move {
   transition: transform 500ms;
-  transition-timing-function: linear(
-    0 0%,
-    0 1.8%,
-    0.01 3.6%,
-    0.03 6.35%,
-    0.07 9.1%,
-    0.13 11.4%,
-    0.19 13.4%,
-    0.27 15%,
-    0.34 16.1%,
-    0.54 18.35%,
-    0.66 20.6%,
-    0.72 22.4%,
-    0.77 24.6%,
-    0.81 27.3%,
-    0.85 30.4%,
-    0.88 35.1%,
-    0.92 40.6%,
-    0.94 47.2%,
-    0.96 55%,
-    0.98 64%,
-    0.99 74.4%,
-    1 86.4%,
-    1 100%
-  );
+  transition-timing-function: var(--emphasize);
 }
 
 .clickablePiece,
