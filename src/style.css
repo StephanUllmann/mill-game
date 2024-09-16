@@ -18,41 +18,18 @@
   -moz-osx-font-smoothing: grayscale;
 
   --rounding: 2rem;
-  --color-primary: hsl(33, 100%, 88%);
+  --color-primary: hsl(27, 31%, 17%);
   --text: hsla(0, 0%, 100%, 0.87);
   color: var(--text);
 
-  --player-black: hsl(0, 0%, 7%);
-  --player-white: hsl(180, 100%, 97%);
+  --player-black: hsl(60, 5%, 15%);
+  --player-white: hsl(38, 46%, 81%);
 
   --player-color: var(--player-black);
   --opponent-color: var(--player-white);
 
-  --emphasize: linear(
-    0 0%,
-    0 1.8%,
-    0.01 3.6%,
-    0.03 6.35%,
-    0.07 9.1%,
-    0.13 11.4%,
-    0.19 13.4%,
-    0.27 15%,
-    0.34 16.1%,
-    0.54 18.35%,
-    0.66 20.6%,
-    0.72 22.4%,
-    0.77 24.6%,
-    0.81 27.3%,
-    0.85 30.4%,
-    0.88 35.1%,
-    0.92 40.6%,
-    0.94 47.2%,
-    0.96 55%,
-    0.98 64%,
-    0.99 74.4%,
-    1 86.4%,
-    1 100%
-  );
+  /* prettier-ignore */
+  --emphasize: linear(0 0%, 0 1.8%, 0.01 3.6%, 0.03 6.35%, 0.07 9.1%, 0.13 11.4%, 0.19 13.4%, 0.27 15%, 0.34 16.1%, 0.54 18.35%, 0.66 20.6%, 0.72 22.4%, 0.77 24.6%, 0.81 27.3%, 0.85 30.4%, 0.88 35.1%, 0.92 40.6%, 0.94 47.2%, 0.96 55%, 0.98 64%, 0.99 74.4%, 1 86.4%, 1 100%);
 }
 html {
   box-sizing: border-box;
@@ -91,7 +68,10 @@ h2 {
 }
 
 .board {
-  transform: scale3d();
+  transform: perspective(2000px) rotateX(33deg);
+  background-image: radial-gradient(in oklch, hsl(23, 29%, 41%), hsl(14, 42%, 27%) 80%), url(/noise.svg);
+  background-blend-mode: hard-light;
+  box-shadow: 0px 10px 0px hsl(from var(--color-primary) h s 10%);
   display: grid;
   --fields: repeat(7, 1fr);
   grid-template-columns: var(--fields);
@@ -175,8 +155,11 @@ h2 {
   box-shadow: 1px 1px 0px hsl(from var(--player-color) 0 0 calc(l * 0.5) / 66%);
   backdrop-filter: blur(1px);
   border-radius: 50%;
+  z-index: 20;
+  pointer-events: none;
 }
-body.is-player .play-piece {
+body.is-player .play-piece,
+body.player-two .play-piece {
   display: block;
 }
 
@@ -196,12 +179,12 @@ body.phase-two .play-piece {
   inset: 50%;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 1px 1px 0px hsl(from var(--player-black) 0 0 calc(l * 0.5));
+  box-shadow: 0px 3px 0px hsl(from var(--player-black) 0 0 calc(l * 0.5));
 }
 .p2::after,
 .p2ind::after {
   background-color: var(--player-white);
-  box-shadow: 1px 1px 0px hsl(from var(--player-white) 0 0 calc(l * 0.5));
+  box-shadow: 0px 3px 0px hsl(from var(--player-white) 0 0 calc(l * 0.5));
 }
 
 .line,
@@ -227,7 +210,18 @@ body.phase-two .play-piece {
   justify-content: start;
   align-items: center;
   gap: 1rem;
+  height: 100%;
   margin-block-start: min(9vh, 9vw);
+
+  &#pieces-p1 {
+    transform: perspective(2000px) rotateX(33deg) rotateZ(3deg);
+    z-index: 2;
+    margin-right: 1rem;
+  }
+  &#pieces-p2 {
+    transform: perspective(2000px) rotateX(33deg) rotateZ(-3deg);
+    margin-left: 1rem;
+  }
 
   .p1ind:after,
   .p2ind:after,
