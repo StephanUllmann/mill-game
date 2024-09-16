@@ -65,11 +65,18 @@ h2 {
   display: flex;
   margin-block: auto;
   /* margin-block-end: 2rem; */
+  position: relative;
 }
 
 .board {
   transform: perspective(2000px) rotateX(33deg);
-  background-image: radial-gradient(in oklch, hsl(23, 29%, 41%), hsl(14, 42%, 27%) 80%), url(/noise.svg);
+  background-image: radial-gradient(
+      in oklch circle at 60% 40%,
+      hsl(23, 29%, 41%),
+      hsl(14, 42%, 27%) 80%,
+      hsl(14, 42%, 22%) 95%
+    ),
+    url(/noise.svg);
   background-blend-mode: hard-light;
   box-shadow: 0px 10px 0px hsl(from var(--color-primary) h s 10%);
   display: grid;
@@ -211,16 +218,22 @@ body.phase-two .play-piece {
   align-items: center;
   gap: 1rem;
   height: 100%;
+  z-index: 20;
+  position: absolute;
+  width: 100%;
   margin-block-start: min(9vh, 9vw);
+  transform-origin: center;
+  pointer-events: none;
 
   &#pieces-p1 {
-    transform: perspective(2000px) rotateX(33deg) rotateZ(3deg);
-    z-index: 2;
-    margin-right: 1rem;
+    transform: perspective(2000px) rotateX(33deg) translateX(-45%);
+    left: 0;
+    margin-right: -1rem;
   }
   &#pieces-p2 {
-    transform: perspective(2000px) rotateX(33deg) rotateZ(-3deg);
-    margin-left: 1rem;
+    transform: perspective(2000px) rotateX(33deg) translateX(45%);
+    margin-left: -1rem;
+    right: 0;
   }
 
   .p1ind:after,
