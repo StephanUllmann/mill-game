@@ -98,6 +98,10 @@ h2 {
 
   place-items: center;
   border-radius: var(--rounding);
+
+  &::selection {
+    background-color: transparent;
+  }
 }
 
 .point {
@@ -281,9 +285,11 @@ body.phase-two .play-piece {
 .clickablePiece,
 .selected {
   cursor: pointer;
-  outline: 5px solid hsl(from var(--player-color) h s l/ 66%);
-  outline-offset: -0.5rem;
+  outline: min(3.5cqw, 3.5cqh) solid hsl(from var(--player-color) h s l/ 33%);
+  outline-offset: min(-1.25cqw, -1.25cqh);
   border-radius: 50%;
+  box-shadow: 3px 3px 10px var(--player-color), -3px -3px 10px var(--player-color), 3px -3px 10px var(--player-color),
+    -3px 3px 10px var(--player-color), 0 0 40px var(--player-color);
 }
 
 #pwa-toast {
@@ -307,6 +313,7 @@ body.phase-two .play-piece {
 }
 #pwa-toast .buttons {
   display: flex;
+  gap: 2rem;
 }
 #pwa-toast.show {
   visibility: visible;
