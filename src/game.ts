@@ -97,7 +97,6 @@ export class Game {
     if (e.key === ' ' || e.key === 'Enter') return this.#handleBoardClick.bind(this)(e);
     if (e.key !== 'ArrowUp' && e.key !== 'ArrowRight' && e.key !== 'ArrowDown' && e.key !== 'ArrowLeft') return;
     const place = point.style.getPropertyValue('--place') as keyof typeof keyboardFocusMoveMap;
-    console.log(place, e.key);
     document.getElementById(keyboardFocusMoveMap[place][e.key])?.focus();
   }
   // form - autocomplete
