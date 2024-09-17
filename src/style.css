@@ -78,6 +78,7 @@ h2 {
     ),
     url(/noise.svg);
   background-blend-mode: hard-light;
+  background-size: contain;
   box-shadow: 0px 10px 0px hsl(from var(--color-primary) h s 10%);
   display: grid;
   --fields: repeat(7, 1fr);
@@ -92,7 +93,7 @@ h2 {
     '. b2 . d2 . f2 .'
     'a1 . . d1 . . g1';
   height: min(85cqh, 85cqw);
-  outline: 2px solid var(--color-primary);
+  outline: min(0.5cqh, 0.5cqw) solid var(--color-primary);
   aspect-ratio: 1;
   padding: min(5cqh, 5cqw);
 
@@ -218,16 +219,27 @@ body.phase-two .play-piece {
 .line-v {
   --line: 1/1/2/8;
   grid-area: var(--line);
-  height: 4px;
-  background-color: var(--color-primary);
+  height: min(0.5cqh, 0.5cqw);
+  background-image: linear-gradient(
+    in oklch,
+    var(--color-primary) 10%,
+    hsl(from var(--color-primary) h s 7%),
+    var(--color-primary) 90%
+  );
   width: calc(100% - min(10.5cqh, 10.5cqw));
-  border-radius: 4px;
+  border-radius: min(0.5cqh, 0.5cqw);
 }
 
 .line-v {
-  width: 4px;
+  width: min(0.5cqh, 0.5cqw);
   height: calc(100% - min(10.5cqh, 10.5cqw));
-  border-radius: 4px;
+  border-radius: min(0.5cqh, 0.5cqw);
+  background-image: linear-gradient(
+    in oklch to right,
+    var(--color-primary) 10%,
+    hsl(from var(--color-primary) h s 7%),
+    var(--color-primary) 90%
+  );
 }
 
 .container {
@@ -236,7 +248,7 @@ body.phase-two .play-piece {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  gap: 1rem;
+  gap: min(2.5cqh, 2.5cqw);
   height: 100%;
   z-index: 10;
   position: absolute;
