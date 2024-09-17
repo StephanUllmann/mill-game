@@ -87,6 +87,152 @@ const connectedMap = {
   d1: ['a1', 'd2', 'g1'],
   g1: ['d1', 'g4'],
 };
+const keyboardFocusMoveMap = {
+  a7: {
+    ArrowUp: 'a1',
+    ArrowRight: 'd7',
+    ArrowDown: 'a4',
+    ArrowLeft: 'g7',
+  },
+  d7: {
+    ArrowUp: 'd1',
+    ArrowRight: 'g7',
+    ArrowDown: 'd6',
+    ArrowLeft: 'a7',
+  },
+  g7: {
+    ArrowUp: 'g1',
+    ArrowRight: 'a7',
+    ArrowDown: 'g4',
+    ArrowLeft: 'd7',
+  },
+  b6: {
+    ArrowUp: 'a7',
+    ArrowRight: 'd6',
+    ArrowDown: 'b4',
+    ArrowLeft: 'a7',
+  },
+  d6: {
+    ArrowUp: 'd7',
+    ArrowRight: 'f6',
+    ArrowDown: 'd5',
+    ArrowLeft: 'b6',
+  },
+  f6: {
+    ArrowUp: 'g7',
+    ArrowRight: 'g7',
+    ArrowDown: 'f4',
+    ArrowLeft: 'd6',
+  },
+  c5: {
+    ArrowUp: 'b6',
+    ArrowRight: 'd5',
+    ArrowDown: 'c4',
+    ArrowLeft: 'b6',
+  },
+  d5: {
+    ArrowUp: 'd6',
+    ArrowRight: 'e5',
+    ArrowDown: 'd3',
+    ArrowLeft: 'c5',
+  },
+  e5: {
+    ArrowUp: 'f6',
+    ArrowRight: 'f6',
+    ArrowDown: 'e4',
+    ArrowLeft: 'd5',
+  },
+  a4: {
+    ArrowUp: 'a7',
+    ArrowRight: 'b4',
+    ArrowDown: 'a1',
+    ArrowLeft: 'g4',
+  },
+  b4: {
+    ArrowUp: 'b6',
+    ArrowRight: 'c4',
+    ArrowDown: 'b2',
+    ArrowLeft: 'a4',
+  },
+  c4: {
+    ArrowUp: 'c5',
+    ArrowRight: 'e4',
+    ArrowDown: 'c3',
+    ArrowLeft: 'b4',
+  },
+  e4: {
+    ArrowUp: 'e5',
+    ArrowRight: 'f4',
+    ArrowDown: 'e3',
+    ArrowLeft: 'c4',
+  },
+  f4: {
+    ArrowUp: 'f6',
+    ArrowRight: 'g4',
+    ArrowDown: 'f2',
+    ArrowLeft: 'e4',
+  },
+  g4: {
+    ArrowUp: 'g7',
+    ArrowRight: 'a4',
+    ArrowDown: 'g1',
+    ArrowLeft: 'f4',
+  },
+  c3: {
+    ArrowUp: 'c4',
+    ArrowRight: 'd3',
+    ArrowDown: 'b2',
+    ArrowLeft: 'b2',
+  },
+  d3: {
+    ArrowUp: 'd5',
+    ArrowRight: 'e3',
+    ArrowDown: 'd2',
+    ArrowLeft: 'c3',
+  },
+  e3: {
+    ArrowUp: 'e4',
+    ArrowRight: 'f2',
+    ArrowDown: 'f2',
+    ArrowLeft: 'd3',
+  },
+  b2: {
+    ArrowUp: 'b4',
+    ArrowRight: 'd2',
+    ArrowDown: 'a1',
+    ArrowLeft: 'a1',
+  },
+  d2: {
+    ArrowUp: 'd3',
+    ArrowRight: 'f2',
+    ArrowDown: 'd1',
+    ArrowLeft: 'b2',
+  },
+  f2: {
+    ArrowUp: 'f4',
+    ArrowRight: 'g1',
+    ArrowDown: 'g1',
+    ArrowLeft: 'd2',
+  },
+  a1: {
+    ArrowUp: 'a4',
+    ArrowRight: 'd1',
+    ArrowDown: 'a7',
+    ArrowLeft: 'g1',
+  },
+  d1: {
+    ArrowUp: 'd2',
+    ArrowRight: 'g1',
+    ArrowDown: 'd7',
+    ArrowLeft: 'a1',
+  },
+  g1: {
+    ArrowUp: 'g4',
+    ArrowRight: 'a1',
+    ArrowDown: 'g7',
+    ArrowLeft: 'd1',
+  },
+};
 
 const lToi = {
   a: 1,
@@ -98,4 +244,4 @@ const lToi = {
   g: 7,
 };
 
-export { checkIsMill, connectedMap, lToi };
+export { checkIsMill, connectedMap, keyboardFocusMoveMap, lToi };

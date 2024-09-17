@@ -118,6 +118,11 @@ h2 {
     cursor: pointer;
   }
 
+  &:focus-visible {
+    outline: 4px solid var(--player-color);
+    border-radius: 1rem;
+  }
+
   body.phase-two &:not(.p1, .p2) {
     cursor: unset;
   }
@@ -198,8 +203,8 @@ body.phase-two .play-piece {
   inset: 50%;
   border-radius: 50%;
   transform: translate(-50%, -52.5%);
-  box-shadow: 0px 3px 0px hsl(from var(--player-black) 0 0 calc(l * 0.5)),
-    2px 5px 3px hsl(from var(--color-primary) 0 0 calc(l * 0.25));
+  box-shadow: 0px 5px 0px hsl(from var(--player-black) 0 0 calc(l * 0.5)),
+    3px 7px 6px hsl(from var(--color-primary) 0 0 calc(l * 0.25));
 }
 .p2::after,
 .p2ind::after {
@@ -211,8 +216,8 @@ body.phase-two .play-piece {
     hsl(from var(--player-white) h s 90%) 40%,
     var(--player-white)
   );
-  box-shadow: 0px 3px 0px hsl(from var(--player-white) 0 0 calc(l * 0.5)),
-    2px 5px 3px hsl(from var(--color-primary) 0 0 calc(l * 0.25));
+  box-shadow: 0px 5px 0px hsl(from var(--player-white) 0 0 calc(l * 0.5)),
+    3px 7px 6px hsl(from var(--color-primary) 0 0 calc(l * 0.25));
 }
 
 .line,

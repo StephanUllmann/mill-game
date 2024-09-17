@@ -1,4 +1,4 @@
-import { checkIsMill, connectedMap, lToi } from './utils';
+import { checkIsMill, connectedMap, keyboardFocusMoveMap, lToi } from './utils';
 
 export class Game {
   #socket: WebSocket | null;
@@ -81,6 +81,7 @@ export class Game {
     });
 
     this.#boardEl.addEventListener('click', this.#handleBoardClick.bind(this));
+    document.addEventListener('keydown', this.#handleKeyboard.bind(this));
     document.addEventListener('mousemove', this.#handleMouseMove.bind(this));
   }
 
@@ -90,7 +91,18 @@ export class Game {
     this.#playPiece.style.setProperty('--y', clientY + 'px');
   }
 
-  #handleBoardClick(e: MouseEvent) {
+  #handleKeyboard(e: KeyboardEvent) {
+    const point = (e.target! as HTMLElement).closest('.point') as HTMLElement;
+    if (!point || e.key === 'Tab') return;
+    if (e.key === ' ' || e.key === 'Enter') return this.#handleBoardClick.bind(this)(e);
+    if (e.key !== 'ArrowUp' && e.key !== 'ArrowRight' && e.key !== 'ArrowDown' && e.key !== 'ArrowLeft') return;
+    const place = point.style.getPropertyValue('--place') as keyof typeof keyboardFocusMoveMap;
+    console.log(place, e.key);
+    document.getElementById(keyboardFocusMoveMap[place][e.key])?.focus();
+  }
+  // form - autocomplete
+  // contrast
+  #handleBoardClick(e: MouseEvent | KeyboardEvent) {
     const point = (e.target as HTMLDivElement).closest('.point') as HTMLDivElement;
     if (!point) return;
     // if socket and it's my turn
