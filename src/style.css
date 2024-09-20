@@ -92,10 +92,10 @@ h2 {
     '. . c3 d3 e3 . .'
     '. b2 . d2 . f2 .'
     'a1 . . d1 . . g1';
-  height: min(85cqh, 85cqw);
-  outline: min(0.5cqh, 0.5cqw) solid var(--color-primary);
+  height: 87.5cqmin;
+  outline: 0.5cqmin solid var(--color-primary);
   aspect-ratio: 1;
-  padding: min(5cqh, 5cqw);
+  padding: 6cqmin;
 
   place-items: center;
   border-radius: var(--rounding);
@@ -109,7 +109,7 @@ h2 {
   --place: a1;
   grid-area: var(--place);
   width: 3rem;
-  width: min(1cqh, 1cqw);
+  width: 1cqmin;
   width: 100%;
   aspect-ratio: 1;
   position: relative;
@@ -134,13 +134,13 @@ h2 {
   }
 
   body:has(.play-piece) &:not(.p1, .p2):hover::after {
-    width: min(6cqh, 6cqw);
+    width: 6cqmin;
     background-color: oklch(from var(--player-color) l c h / 66%);
     backdrop-filter: blur(1px);
   }
   &::after {
     content: '';
-    /* width: min(0.5cqh, 0.5cqw); */
+    /* width: 0.5cqmin; */
     aspect-ratio: 1;
     position: absolute;
     inset: 50%;
@@ -150,7 +150,7 @@ h2 {
   }
 
   body.phase-two &:not(.p1, .p2):hover::after {
-    width: min(0cqh, 0cqw);
+    width: 0cqmin;
     background-color: var(--color-primary);
   }
 }
@@ -166,7 +166,7 @@ h2 {
   top: var(--y);
   transform: translate(-50%, -50%);
   --place: none;
-  width: min(6cqh, 6cqw);
+  width: 5.5cqmin;
   aspect-ratio: 1;
   background-color: oklch(from var(--player-color) l c h / 66%);
   box-shadow: 1px 1px 0px hsl(from var(--player-color) 0 0 calc(l * 0.5) / 66%);
@@ -189,7 +189,7 @@ body.phase-two .play-piece {
 .p1ind::after,
 .p2ind::after {
   content: '';
-  width: min(6cqh, 6cqw);
+  width: 6cqmin;
   background-color: var(--player-black);
   background-image: radial-gradient(
     var(--player-black),
@@ -224,21 +224,21 @@ body.phase-two .play-piece {
 .line-v {
   --line: 1/1/2/8;
   grid-area: var(--line);
-  height: min(0.5cqh, 0.5cqw);
+  height: 0.6cqmin;
   background-image: linear-gradient(
     in oklch,
     var(--color-primary) 10%,
     hsl(from var(--color-primary) h s 7%),
     var(--color-primary) 90%
   );
-  width: calc(100% - min(10.5cqh, 10.5cqw));
-  border-radius: min(0.5cqh, 0.5cqw);
+  width: calc(100% - 10.5cqmin);
+  border-radius: 0.6cqmin;
 }
 
 .line-v {
-  width: min(0.5cqh, 0.5cqw);
-  height: calc(100% - min(10.5cqh, 10.5cqw));
-  border-radius: min(0.5cqh, 0.5cqw);
+  width: 0.6cqmin;
+  height: calc(100% - 10.5cqmin);
+  border-radius: 0.6cqmin;
   background-image: linear-gradient(
     in oklch to right,
     var(--color-primary) 10%,
@@ -253,12 +253,12 @@ body.phase-two .play-piece {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  gap: min(2.5cqh, 2.5cqw);
+  gap: 2.5cqmin;
   height: 100%;
   z-index: 10;
   position: absolute;
   width: 100%;
-  margin-block-start: min(9vh, 9vw);
+  margin-block-start: 9vmin;
   transform-origin: center;
   pointer-events: none;
 
@@ -278,14 +278,14 @@ body.phase-two .play-piece {
   .p1ind,
   .p2ind {
     display: block;
-    width: min(3.5vw, 3.5vh);
+    width: 3.5cqmin;
     aspect-ratio: 1;
     position: relative;
   }
 }
 
 .mill {
-  width: min(7cqh, 7cqw);
+  width: 8cqmin;
   color: var(--player-color);
   grid-area: 4/4/5/5;
 }
@@ -302,8 +302,8 @@ body.phase-two .play-piece {
 .clickablePiece,
 .selected {
   cursor: pointer;
-  outline: min(3.5cqw, 3.5cqh) solid hsl(from var(--player-color) h s l/ 33%);
-  outline-offset: min(-1.25cqw, -1.25cqh);
+  outline: 3.5cqmin solid hsl(from var(--player-color) h s l/ 33%);
+  outline-offset: -1.25cqmin;
   border-radius: 50%;
   box-shadow: 3px 3px 10px var(--player-color), -3px -3px 10px var(--player-color), 3px -3px 10px var(--player-color),
     -3px 3px 10px var(--player-color), 0 0 40px var(--player-color);
