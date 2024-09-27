@@ -33,6 +33,7 @@
 }
 html {
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .player-two {
@@ -41,7 +42,6 @@ html {
 }
 
 main {
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -63,8 +63,6 @@ h2 {
 }
 .flex {
   display: flex;
-  margin-block: auto;
-  /* margin-block-end: 2rem; */
   position: relative;
 }
 
