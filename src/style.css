@@ -46,7 +46,9 @@ main {
   display: flex;
   flex-direction: column;
   place-items: center;
+  justify-content: center;
   container-type: inline-size;
+  min-height: 100dvh;
 }
 
 .status-bar {
