@@ -6,6 +6,7 @@ export class Game {
   #playerIndicator: HTMLHeadingElement;
   #playPiece: HTMLDivElement;
   #millEl: HTMLDivElement;
+  #confirmNextRoundEl: HTMLDialogElement;
 
   #playerBlackName = 'Black';
   #playerWhiteName = 'White';
@@ -43,6 +44,7 @@ export class Game {
     this.#playPiece = document.getElementById('play-piece')! as HTMLDivElement;
     this.#millEl = document.querySelector('.mill')! as HTMLDivElement;
     this.#opponentPieces = document.querySelectorAll('not-in-doc');
+    this.#confirmNextRoundEl = document.getElementById('confirm-next-round') as HTMLDialogElement;
     this.#selectedPoint = null;
   }
   start() {
@@ -99,8 +101,7 @@ export class Game {
     const place = point.style.getPropertyValue('--place') as keyof typeof keyboardFocusMoveMap;
     document.getElementById(keyboardFocusMoveMap[place][e.key])?.focus();
   }
-  // form - autocomplete
-  // contrast
+
   #handleBoardClick(e: MouseEvent | KeyboardEvent) {
     const point = (e.target as HTMLDivElement).closest('.point') as HTMLDivElement;
     if (!point) return;
@@ -215,6 +216,40 @@ export class Game {
     const text = this.#isPlayerOne ? this.#playerBlackName : this.#playerWhiteName;
     this.#playerIndicator.textContent = text + "'s turn";
     document.body.classList.toggle('player-two');
+    if (!this.#checkIfMovePossible()) this.#confirmSkipRound();
+  }
+
+  #checkIfMovePossible() {
+    const player = this.#isPlayerOne ? this.#playerBlackName : this.#playerWhiteName;
+    if (!this.#isPhaseTwo) return true;
+    console.log('RUNNING');
+    console.log(this.#isPlayerOne);
+
+    const playerPoints = this.#isPlayerOne ? this.#p1Points : this.#p2Points;
+
+    const allSetPoints = [...this.#p1Points, ...this.#p2Points];
+
+    console.log('playerpoints: ', playerPoints);
+    console.log('all points: ', allSetPoints);
+    // is in the move map some point that is included in any players' points array
+    const movePossible = playerPoints.some((point) =>
+      connectedMap[point as keyof typeof connectedMap].some((movePoint) => {
+        console.log('Move point: ', movePoint);
+        return !allSetPoints.includes(movePoint);
+      })
+    );
+    console.log('Move Possible: ', player, movePossible);
+    return movePossible;
+  }
+
+  #confirmSkipRound() {
+    const player = this.#isPlayerOne ? this.#playerBlackName : this.#playerWhiteName;
+    const text = player + ' cannot move. Confirm next round.';
+    // confirm(player + ' cannot move. Confirm next round.');
+
+    this.#confirmNextRoundEl.querySelector('h2')!.textContent = text;
+    this.#confirmNextRoundEl.showModal();
+    this.#endRound();
   }
 
   #endMillState() {

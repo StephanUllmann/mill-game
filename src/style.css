@@ -8,6 +8,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  caret-color: transparent;
 
   color-scheme: light dark;
   background-color: #242424;
@@ -427,12 +428,17 @@ form {
   font-weight: 600;
   padding: 2rem;
   padding-top: 1rem;
+  max-width: 80cqmin;
+  min-width: 50cqmin;
+
   h2 {
     padding: 0;
     margin: 0 0 1rem;
     text-align: center;
     font-size: 1.175rem;
+    /* text-wrap: nowrap; */
   }
+
   form {
     display: flex;
     justify-content: center;
