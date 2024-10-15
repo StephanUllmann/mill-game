@@ -70,36 +70,37 @@
         <div class="container" id="pieces-p2"></div>
       </div>
 
+
+
+      <dialog class="mode" id="confirm-next-round">
+        <h2>No move possible</h2>
+        <form method="dialog">
+          <button>Next Round</button>
+        </form>
+      </dialog>
+
+      <dialog class="mode" id="mode">
+        <h2>Nine Men's Morris</h2>
+        <form method="dialog">
+          <button type="submit" value="local">Local</button>
+          <span>or</span>
+          <button type="submit" value="online">Online</button>
+        </form>
+      </dialog>
+
+      <aside class="rooms hidden">
+        <form autocomplete="off" id="socketForm">
+          <div><label for="room">Room </label><input type="text" name="room" id="room">
+          </div>
+          <div><label for="name">Name </label><input type="text" name="name" id="name">
+          </div>
+          <button>Connect</button>
+        </form>
+        <button id="close-ws" class="hidden">Close</button>
+        <p id="msg" class="hidden"></p>
+      </aside>
+
     </main>
-
-    <dialog class="mode" id="confirm-next-round">
-      <h2>No move possible</h2>
-      <form method="dialog">
-        <button>Next Round</button>
-      </form>
-    </dialog>
-
-    <dialog class="mode" id="mode">
-      <h2>Nine Men's Morris</h2>
-      <form method="dialog">
-        <button type="submit" value="local">Local</button>
-        <span>or</span>
-        <button type="submit" value="online">Online</button>
-      </form>
-    </dialog>
-
-    <aside class="rooms hidden">
-      <form autocomplete="off" id="socketForm">
-        <div><label for="room">Room </label><input type="text" name="room" id="room">
-        </div>
-        <div><label for="name">Name </label><input type="text" name="name" id="name">
-        </div>
-        <button>Connect</button>
-      </form>
-      <button id="close-ws" class="hidden">Close</button>
-      <p id="msg" class="hidden"></p>
-    </aside>
-
     <script type="module" src="/src/main.ts"></script>
   </body>
 

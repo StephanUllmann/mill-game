@@ -34,6 +34,13 @@
 }
 html {
   box-sizing: border-box;
+}
+
+body,
+html,
+main {
+  height: 100svh;
+  width: 100svw;
   overflow: hidden;
 }
 
@@ -48,7 +55,7 @@ main {
   place-items: center;
   justify-content: center;
   container-type: inline-size;
-  min-height: 100dvh;
+  /* height: 100dvh; */
 }
 
 .status-bar {
@@ -158,6 +165,10 @@ h2 {
 
 .play-piece {
   display: none;
+
+  @media screen and (width < 600px) {
+    display: none !important;
+  }
 }
 :not(:has(.point:hover)) .play-piece {
   --x: -40px;
@@ -451,6 +462,8 @@ form {
 
 .mode::backdrop {
   backdrop-filter: blur(1px);
+  /* max-width: 95svw;
+  max-height: 95svh; */
 }
 
 dialog[open] {
