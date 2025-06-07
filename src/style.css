@@ -19,7 +19,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   --rounding: 2rem;
-  --color-primary: hsl(27, 31%, 17%);
+  --color-primary: hsl(29, 31%, 13%);
   --text: hsla(0, 0%, 100%, 0.87);
   color: var(--text);
 
@@ -87,7 +87,8 @@ h2 {
     url(/noise.svg);
   background-blend-mode: hard-light;
   background-size: contain;
-  box-shadow: 0px 10px 0px hsl(from var(--color-primary) h s 10%);
+  box-shadow: 0px 10px 0px hsl(from var(--color-primary) h s 10%),
+    5px 10px 20px 10px hsl(from var(--color-primary) h s 10%);
   display: grid;
   --fields: repeat(7, 1fr);
   grid-template-columns: var(--fields);
