@@ -1,16 +1,16 @@
 import { checkIsMill, connectedMap, keyboardFocusMoveMap, lToi } from './utils';
 
 export class Game {
-  #socket: WebSocket | null;
-  #boardEl: HTMLDivElement;
-  #playerIndicator: HTMLHeadingElement;
-  #playPiece: HTMLDivElement;
-  #millEl: HTMLDivElement;
-  #confirmNextRoundEl: HTMLDialogElement;
+  readonly #socket: WebSocket | null;
+  readonly #boardEl: HTMLDivElement;
+  readonly #playerIndicator: HTMLHeadingElement;
+  readonly #playPiece: HTMLDivElement;
+  readonly #millEl: HTMLDivElement;
+  readonly #confirmNextRoundEl: HTMLDialogElement;
 
   #playerBlackName = 'Black';
   #playerWhiteName = 'White';
-  #playerSelf: 'black' | 'white' = 'black';
+  readonly #playerSelf: 'black' | 'white' = 'black';
 
   #isPlayerOne = true;
 
@@ -42,7 +42,7 @@ export class Game {
     this.#boardEl = document.querySelector<HTMLDivElement>('.board')!;
     this.#playerIndicator = document.getElementById('player-indicator')! as HTMLHeadingElement;
     this.#playPiece = document.getElementById('play-piece')! as HTMLDivElement;
-    this.#millEl = document.querySelector('.mill')! as HTMLDivElement;
+    this.#millEl = document.querySelector('.mill')!;
     this.#opponentPieces = document.querySelectorAll('not-in-doc');
     this.#confirmNextRoundEl = document.getElementById('confirm-next-round') as HTMLDialogElement;
     this.#selectedPoint = null;
