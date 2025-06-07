@@ -74,7 +74,7 @@ export class NetworkHandler {
       return;
     }
     this.showMessage('Connecting...', 50000);
-    this.socket = new WebSocket(`wss://mill-game-socket-server.onrender.com/${room}?name=${name}`);
+    this.socket = new WebSocket(`wss://morris-socket.stephanullmann.dev/${room}?name=${name}`);
     this.socket.addEventListener('open', () => {
       (e.target! as HTMLFormElement).reset();
       const btn = document.getElementById('close-ws')!;
